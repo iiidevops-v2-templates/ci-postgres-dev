@@ -1,6 +1,6 @@
 {
   "name": "PostgreSQL 13",
-  "description": "PostgreSQL 13 <a class='el-link el-link--primary' href='https://github.com/iiidevops-templates/postgres-dev/blob/master/README.md' target='_blank'>postgresql 部署注意事項</a><hr /><ul><li><strong>v2.0</strong>:更新CI自動化腳本</li></ul>",
+  "description": "PostgreSQL 13 <a class='el-link el-link--primary' href='https://github.com/iiidevops-v2-templates/ci-postgres-dev/blob/master/README.md' target='_blank'>postgresql 部署注意事項</a><hr /><ul><li><strong>v2.0</strong>:更新CI自動化腳本</li></ul>",
   "arguments": [
     {
       "key": "db.username",
