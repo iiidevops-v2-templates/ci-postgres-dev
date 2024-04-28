@@ -1,19 +1,23 @@
+include:
+- project: iiidevops-templates/ci-template
+  ref: v2.8.0
+  file: ci/template.gitlab-ci.yml
+- project: iiidevops-templates/ci-template
+  ref: v2.8.0
+  file: job/DeployDatabase.gitlab-ci.yml
+- local: iiidevops/jobs/*.yml
+
 stages:
 - initial
 - scan
 - build
 - deploy
 - test
-include:
-- project: iiidevops-templates/ci-template
-  ref: v2.6.0
-  file: ci/template.gitlab-ci.yml
-- project: iiidevops-templates/ci-template
-  ref: v2.6.0
-  file: job/DeployDatabase.gitlab-ci.yml
+- userjobs
+
 Deploy--Database:
   variables:
-    iiidevops: deployed-environments
+    iiidevops: deploy-db
     CHART_DB_GUI: 'true'
     CHART_DB_NAME: todo_db
     CHART_DB_USERNAME: iiidevops
@@ -21,11 +25,9 @@ Deploy--Database:
     CHART_DB_TAG: '13'
     CHART_DB_TYPE: postgresql
     CHART_VOLUME_ENABLED: 'false'
-  only:
-  - master
+    
 Deploy--Wait DB deployment:
   variables:
-    iiidevops: deployed-environments
+    iiidevops: deploy-db
     max_wait: 128
-  only:
-  - master
+    
